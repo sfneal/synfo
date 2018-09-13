@@ -20,7 +20,6 @@ import multiprocess as mp
 from os import getlogin
 from psutil import virtual_memory
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
-from envinfo.format import format_size, format_string
 
 
 class Formatter:
@@ -35,9 +34,52 @@ class Formatter:
     def create_string(self):
         lst = [self.type, '------------------']
         for k, v in self.info().items():
-            lst.append(format_string(k, v))
+            lst.append(self.format_string(k, v))
         lst.append('\n')
         return '\n'.join(lst)
+
+    @staticmethod
+    def format_string(key, value):
+        return f'{key:20} ==> {value}'
+
+    @staticmethod
+    def format_size(num_bytes, binary=False, strip=True):
+        """
+        Format a number of bytes as a human readable size.
+
+        Parameters
+        ----------
+        num_bytes : int
+            The size to format.
+        binary : bool, optional
+            The base to group the number of bytes.
+        strip : bool, optional
+            If trailing zeros should be keeped or stripped.
+
+        Returns
+        -------
+        str
+            The human readable file size.
+        """
+        size_units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+        if binary:
+            base = 2 ** 10
+        else:
+            base = 10 ** 3
+
+        for i, unit in reversed(list(enumerate(size_units))):
+            divider = base ** i
+            if num_bytes >= divider:
+                formatted = '{:0.2f}'.format(num_bytes / divider, unit)
+                if strip:
+                    formatted = formatted.rstrip('0').rstrip('.')
+                formatted = '{} {}'.format(formatted, unit)
+
+                return formatted
+
+        # Failed to match a unit
+        return '0 {}'.format(size_units[0])
 
 
 class Python(Formatter):
@@ -83,15 +125,21 @@ class System(Formatter):
     def username(self): return getlogin()
 
 
-class Memory:
+class Memory(Formatter):
     """Memory information class."""
+    def __init__(self):
+        super(Memory, self).__init__('Memory', self.info)
+
+    def info(self):
+        return {'installed': self.installed, 'available': self.available}
+
     def __str__(self): return self.installed
 
     @property
-    def installed(self): return format_size(virtual_memory()[0], binary=True)
+    def installed(self): return self.format_size(virtual_memory()[0], binary=True)
 
     @property
-    def available(self): return format_size(virtual_memory()[1], binary=True)
+    def available(self): return self.format_size(virtual_memory()[1], binary=True)
 
 
 class Processor:
