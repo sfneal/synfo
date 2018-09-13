@@ -24,6 +24,7 @@ from envinfo.format import format_size, format_string
 
 
 class Formatter:
+    """Inherited class with methods called by numerous classes."""
     def __init__(self, info_type, info):
         self.type = info_type
         self.info = info
@@ -40,6 +41,7 @@ class Formatter:
 
 
 class Python(Formatter):
+    """Python related information such as Python version and Python compiler"""
     def __init__(self):
         super(Python, self).__init__('Python', self.info)
 
@@ -54,6 +56,7 @@ class Python(Formatter):
 
 
 class System(Formatter):
+    """Software related information such as operating system, machine type, username, etc."""
     def __init__(self):
         super(System, self).__init__('System', self.info)
 
@@ -81,6 +84,7 @@ class System(Formatter):
 
 
 class Hardware(Formatter):
+    """Hardware related information such as memory and processor information"""
     def __init__(self):
         self.type = 'Hardware'
         super(Hardware, self).__init__('Hardware', self.info)
@@ -92,17 +96,25 @@ class Hardware(Formatter):
     @property
     def memory(self):
         class Memory:
-            def __init__(self):
-                self.installed = format_size(virtual_memory()[0], binary=True)
-                self.available = format_size(virtual_memory()[1], binary=True)
+            def __str__(self): return self.installed
+
+            @property
+            def installed(self): return format_size(virtual_memory()[0], binary=True)
+
+            @property
+            def available(self): return format_size(virtual_memory()[1], binary=True)
         return Memory()
 
     @property
     def processor(self):
         class Processor:
-            def __init__(self):
-                self.type = processor()
-                self.cores = mp.cpu_count()
+            def __str__(self): return self.type
+
+            @property
+            def type(self): return processor()
+
+            @property
+            def cores(self): return mp.cpu_count()
         return Processor()
 
 
