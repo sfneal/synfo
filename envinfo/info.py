@@ -134,6 +134,7 @@ class EnvInfo:
 
 
 def main():
+    # TODO: Add sys.args handling to make script callable from command line
     env = EnvInfo()
     print(env)
     return env.info()
