@@ -8,7 +8,7 @@ class Formatter:
         return self.create_string()
 
     def create_string(self):
-        lst = [self.type, '------------------']
+        lst = [self.type, '------']
         for k, v in self.info().items():
             lst.append(self.format_string(k, v))
         lst.append('\n')
@@ -16,7 +16,7 @@ class Formatter:
 
     @staticmethod
     def format_string(key, value):
-        return f'{key:20} ==> {value}'
+        return f'{key:16} : {value}'
 
     @staticmethod
     def format_size(num_bytes, binary=False, strip=True):
