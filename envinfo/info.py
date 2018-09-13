@@ -3,24 +3,23 @@ A lightweight utility for retrieving system information and specifications.
 
 System Information
 ------------------
-Hardware
-    Processor
 Python
     Version
     Compiler
 System
-    Processor
-        Type
-        Cores
-    Memory
-        Installed
-        Available
     OS
     Release
     Machine
     Architecture
     Hostname
     Username
+Hardware
+    Processor
+        Type
+        Cores
+    Memory
+        Installed
+        Available
 """
 import multiprocess as mp
 from os import getlogin
