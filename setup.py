@@ -18,7 +18,6 @@ setup(
     version=verstr,
     packages=find_packages(),
     install_requires=[
-        'platform',
         'psutil',
         'multiprocess'
     ],
