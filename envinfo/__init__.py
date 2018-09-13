@@ -1,5 +1,4 @@
-from envinfo import info
-from envinfo import format
+from envinfo.info import EnvInfo
 
 
-__all__ = ['info', 'format']
+__all__ = ['EnvInfo']
