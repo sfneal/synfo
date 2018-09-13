@@ -2,30 +2,6 @@ import re
 from setuptools import setup, find_packages
 
 
-description_long = """
-System Information
-------------------
-Hardware
-    Processor
-Python
-    Version
-    Compiler
-System
-    Processor
-        Type
-        Cores
-    Memory
-        Installed
-        Available
-    OS
-    Release
-    Machine
-    Architecture
-    Hostname
-    Username
-"""
-
-
 # Retrieve version number
 VERSIONFILE = "envinfo/_version.py"
 verstrline = open(VERSIONFILE, "rt").read()
@@ -50,6 +26,5 @@ setup(
     license='GPL-3.0',
     author='Stephen Neal',
     author_email='stephen@stephenneal.net',
-    description='A lightweight utility for retrieving system information and specifications.',
-    description_long=description_long
+    description='A lightweight utility for retrieving system information and specifications.'
 )
