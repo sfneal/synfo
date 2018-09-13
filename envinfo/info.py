@@ -16,8 +16,8 @@ System
     Hostname
     Username
 """
-import os
 import multiprocess as mp
+from os import getlogin
 from psutil import virtual_memory
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
 from envinfo.format import format_size, format_string
@@ -77,7 +77,7 @@ class System(Formatter):
     def hostname(self): return node()
 
     @property
-    def username(self): return os.getlogin()
+    def username(self): return getlogin()
 
 
 class Hardware(Formatter):
