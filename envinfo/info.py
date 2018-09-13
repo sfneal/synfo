@@ -20,7 +20,7 @@ import multiprocess as mp
 from os import getlogin
 from psutil import virtual_memory
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
-from .format import Formatter
+from envinfo.format import Formatter
 
 
 class Python(Formatter):
