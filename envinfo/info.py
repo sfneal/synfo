@@ -83,6 +83,28 @@ class System(Formatter):
     def username(self): return getlogin()
 
 
+class Memory:
+    """Memory information class."""
+    def __str__(self): return self.installed
+
+    @property
+    def installed(self): return format_size(virtual_memory()[0], binary=True)
+
+    @property
+    def available(self): return format_size(virtual_memory()[1], binary=True)
+
+
+class Processor:
+    """Processor information class"""
+    def __str__(self): return self.type
+
+    @property
+    def type(self): return processor()
+
+    @property
+    def cores(self): return mp.cpu_count()
+
+
 class Hardware(Formatter):
     """Hardware related information such as memory and processor information"""
     def __init__(self):
@@ -94,28 +116,10 @@ class Hardware(Formatter):
                 'processor_type': self.processor.type, 'processor_cores': self.processor.cores}
 
     @property
-    def memory(self):
-        class Memory:
-            def __str__(self): return self.installed
-
-            @property
-            def installed(self): return format_size(virtual_memory()[0], binary=True)
-
-            @property
-            def available(self): return format_size(virtual_memory()[1], binary=True)
-        return Memory()
+    def memory(self): return Memory()
 
     @property
-    def processor(self):
-        class Processor:
-            def __str__(self): return self.type
-
-            @property
-            def type(self): return processor()
-
-            @property
-            def cores(self): return mp.cpu_count()
-        return Processor()
+    def processor(self): return Processor()
 
 
 class EnvInfo:
