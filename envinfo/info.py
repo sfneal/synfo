@@ -9,6 +9,12 @@ Python
     Version
     Compiler
 System
+    Processor
+        Type
+        Cores
+    Memory
+        Installed
+        Available
     OS
     Release
     Machine
