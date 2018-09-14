@@ -11,7 +11,6 @@ class Formatter:
         lst = [self.type, '------']
         for k, v in self.info().items():
             lst.append(self.format_string(k, v))
-        lst.append('\n')
         return '\n'.join(lst)
 
     @staticmethod
