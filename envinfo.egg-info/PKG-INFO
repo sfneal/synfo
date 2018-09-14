@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: envinfo
-Version: 1.0.0
+Version: 1.0.1
 Summary: A lightweight utility for retrieving system information and specifications.
 Home-page: https://github.com/mrstephenneal/envinfo
 Author: Stephen Neal
