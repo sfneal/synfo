@@ -2,7 +2,8 @@ setup.py
 envinfo/__init__.py
 envinfo/_version.py
 envinfo/format.py
-envinfo/info.py
+envinfo/package.py
+envinfo/system.py
 envinfo.egg-info/PKG-INFO
 envinfo.egg-info/SOURCES.txt
 envinfo.egg-info/dependency_links.txt
