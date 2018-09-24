@@ -1,4 +1,4 @@
-from envinfo.info import EnvInfo
+from envinfo.system import EnvInfo
 
 
 __all__ = ['EnvInfo']
