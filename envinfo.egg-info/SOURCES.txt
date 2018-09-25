@@ -1,6 +1,8 @@
+README.md
 setup.py
 envinfo/__init__.py
 envinfo/_version.py
+envinfo/drives.py
 envinfo/format.py
 envinfo/package.py
 envinfo/system.py
