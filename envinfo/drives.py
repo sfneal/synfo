@@ -2,7 +2,7 @@ from envinfo.system import System
 
 # Windows only, get information on mounted drives
 if System().os == 'Windows':
-    from os import popen
+    from os import popen, path
     from re import findall, MULTILINE
     from string import ascii_uppercase
     from ctypes import windll
@@ -35,6 +35,19 @@ if System().os == 'Windows':
         def _get_drives_local():
             """Get list of locally mounted drives"""
             return findall(r"[A-Z]+:.*$", popen("mountvol /").read(), MULTILINE)
+
+        def find(self, test_path):
+            """
+            Retrieve the drive letter for a drive by attempting to find an existing path.
+
+            :param test_path: Path to be joined with a drive letter to test validity
+            :return: Drive letter for valid path
+            """
+            for drive in self.drives:
+                if path.exists(path.join(drive, test_path)):
+                    return drive
+            else:
+                print('Unable to find a valid path')
 
 
     def main():
