@@ -7,7 +7,7 @@ if System().os == 'Windows':
     from string import ascii_uppercase
     from ctypes import windll
 
-
+    # TODO: Make class cross platform compatible
     class Drives:
         def __init__(self):
             self.drives = self._get_drives()
