@@ -1,24 +1,24 @@
 class Formatter:
     """Inherited class with methods called by numerous classes."""
     def __init__(self, info_type, info):
-        self.type = info_type
-        self.info = info
+        self._type = info_type
+        self._info = info
 
     def __str__(self):
-        return self.create_string()
+        return self._create_string()
 
-    def create_string(self):
-        lst = [self.type, '------']
-        for k, v in self.info().items():
-            lst.append(self.format_string(k, v))
+    def _create_string(self):
+        lst = [self._type, '------']
+        for k, v in self._info().items():
+            lst.append(self._format_string(k, v))
         return '\n'.join(lst)
 
     @staticmethod
-    def format_string(key, value):
+    def _format_string(key, value):
         return f'{key:16} : {value}'
 
     @staticmethod
-    def format_size(num_bytes, binary=False, strip=True):
+    def _format_size(num_bytes, binary=False, strip=True):
         """
         Format a number of bytes as a human readable size.
 
