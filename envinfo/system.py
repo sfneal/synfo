@@ -102,7 +102,6 @@ class Processor:
 class Hardware(Formatter):
     """Hardware related information such as memory and processor information"""
     def __init__(self):
-        self.type = 'Hardware'
         super(Hardware, self).__init__('Hardware', self.info)
 
     def info(self):
