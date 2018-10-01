@@ -82,10 +82,10 @@ class Memory(Formatter):
     def __str__(self): return self.installed
 
     @property
-    def installed(self): return self.format_size(virtual_memory()[0], binary=True)
+    def installed(self): return self._format_size(virtual_memory()[0], binary=True)
 
     @property
-    def available(self): return self.format_size(virtual_memory()[1], binary=True)
+    def available(self): return self._format_size(virtual_memory()[1], binary=True)
 
 
 class Processor:
@@ -128,15 +128,15 @@ class EnvInfo:
     def __str__(self):
         return ''.join([str(i) for i in self.__iter__()])
 
-    def info(self):
-        return {n.type.lower(): n.info() for n in self.__iter__()}
+    def all(self):
+        return {n._type.lower(): n.info() for n in self.__iter__()}
 
 
 def main():
     # TODO: Add sys.args handling to make script callable from command line
     env = EnvInfo()
     print(env)
-    return env.info()
+    return env.all()
 
 
 if __name__ == '__main__':
