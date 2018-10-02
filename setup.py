@@ -18,7 +18,6 @@ setup(
     version=verstr,
     packages=find_packages(),
     install_requires=[
-        'psutil<=5.4.6',
         'multiprocess'
     ],
     url='https://github.com/mrstephenneal/envinfo',

@@ -23,9 +23,15 @@ Hardware
 """
 import multiprocess as mp
 from os import getlogin
-from psutil import virtual_memory
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
 from envinfo.format import Formatter
+
+# Conditional import of psutil
+from sys import modules
+if 'psutil' in modules:
+    _PSUTIL_INSTALL = True
+    _NO_PSUTIL_INSTALL_MSG = 'Please install the psutil module to retrieve system memory usage info.'
+    from psutil import virtual_memory
 
 
 class Python(Formatter):
@@ -76,16 +82,31 @@ class Memory(Formatter):
     def __init__(self):
         super(Memory, self).__init__('Memory', self.info)
 
-    def info(self):
-        return {'installed': self.installed, 'available': self.available}
-
     def __str__(self): return self.installed
 
-    @property
-    def installed(self): return self._format_size(virtual_memory()[0], binary=True)
+    if _PSUTIL_INSTALL:
+        def info(self):
+            return {'installed': self.installed, 'available': self.available}
 
-    @property
-    def available(self): return self._format_size(virtual_memory()[1], binary=True)
+        @property
+        def installed(self): return self._format_size(virtual_memory()[0], binary=True)
+
+        @property
+        def available(self): return self._format_size(virtual_memory()[1], binary=True)
+
+    else:
+        @staticmethod
+        def info():
+            print(_NO_PSUTIL_INSTALL_MSG)
+            return None
+
+        @property
+        def installed(self):
+            return self.info()
+
+        @property
+        def available(self):
+            return self.info()
 
 
 class Processor:
