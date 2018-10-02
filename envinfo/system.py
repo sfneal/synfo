@@ -28,6 +28,7 @@ from envinfo.format import Formatter
 
 # Conditional import of psutil
 from sys import modules
+_PSUTIL_INSTALL = False
 if 'psutil' in modules:
     _PSUTIL_INSTALL = True
     _NO_PSUTIL_INSTALL_MSG = 'Please install the psutil module to retrieve system memory usage info.'
