@@ -1,2 +1,2 @@
-psutil
+psutil<=5.4.6
 multiprocess
