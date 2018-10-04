@@ -1,10 +1,9 @@
-import os
 from setuptools import setup
 
 
 setup(
     name='envinfo',
-    version='1.5.1',
+    version='1.5.2',
     install_requires=[
         'synfo'
     ],
@@ -14,5 +13,3 @@ setup(
     author_email='stephen@stephenneal.net',
     description='Legacy wrapper module for synfo.'
 )
-
-os.system('pip uninstall envinfo')
