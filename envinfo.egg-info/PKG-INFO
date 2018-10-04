@@ -1,8 +1,8 @@
 Metadata-Version: 1.0
 Name: envinfo
-Version: 1.4.4
-Summary: A lightweight utility for retrieving system information and specifications.
-Home-page: https://github.com/mrstephenneal/envinfo
+Version: 1.5.0
+Summary: Legacy wrapper module for synfo.
+Home-page: https://github.com/mrstephenneal/synfo
 Author: Stephen Neal
 Author-email: stephen@stephenneal.net
 License: GPL-3.0
