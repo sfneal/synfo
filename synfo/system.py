@@ -25,7 +25,7 @@ from argparse import ArgumentParser
 import multiprocess as mp
 from os import getlogin
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
-from envinfo.format import Formatter
+from synfo.format import Formatter
 
 # Conditional import of psutil
 from sys import modules
@@ -168,6 +168,11 @@ class Synfo:
         return {n._type.lower(): n.info() for n in self.__iter__()}
 
 
+def synfo(kwargs=None):
+    """Wrapper function for Synfo class"""
+    return Synfo(kwargs)
+
+
 def main():
     # Declare argparse argument descriptions
     usage = 'Retrieve system information'
@@ -195,7 +200,7 @@ def main():
         args = {k: True for k in args.keys()}
 
     # Run EnvInfo
-    print(Synfo(args))
+    print(synfo(args))
 
 
 if __name__ == '__main__':

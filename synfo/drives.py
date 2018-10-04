@@ -1,4 +1,4 @@
-from envinfo.system import System
+from synfo.system import System
 
 # Windows only, get information on mounted drives
 if System().os == 'Windows':
@@ -61,5 +61,5 @@ if System().os == 'Windows':
 else:
     class Drives:
         def __init__(self):
-            print("envinfo.drives module is compatible with Windows platform's only")
+            print("synfo.drives module is compatible with Windows platform's only")
             pass
