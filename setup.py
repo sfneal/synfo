@@ -20,9 +20,9 @@ setup(
     install_requires=[
         'multiprocess'
     ],
-    entry_point={
+    entry_points={
         'console_scripts': [
-            'EnvInfo = EnvInfo.system:main'
+            'envinfo = envinfo.system:main'
         ]
     },
     url='https://github.com/mrstephenneal/envinfo',
