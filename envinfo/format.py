@@ -12,6 +12,7 @@ class Formatter:
         lst = [self._type, '------']
         for k, v in self._info().items():
             lst.append(self._format_string(k, v))
+        lst.append('\n')
         return '\n'.join(lst)
 
     @staticmethod
