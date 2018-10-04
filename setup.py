@@ -20,6 +20,11 @@ setup(
     install_requires=[
         'multiprocess'
     ],
+    entry_point={
+        'console_scripts': [
+            'EnvInfo = EnvInfo.system:main'
+        ]
+    },
     url='https://github.com/mrstephenneal/envinfo',
     license='GPL-3.0',
     author='Stephen Neal',
