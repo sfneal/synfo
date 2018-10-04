@@ -1,0 +1,3 @@
+[console_scripts]
+envinfo = envinfo.system:main
+
