@@ -59,8 +59,7 @@ if System().os == 'Windows':
 
 
 else:
-    print("envinfo.drives module is compatible with Windows platform's only")
-
     class Drives:
         def __init__(self):
+            print("envinfo.drives module is compatible with Windows platform's only")
             pass

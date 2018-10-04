@@ -31,7 +31,6 @@ from sys import modules
 _PSUTIL_INSTALL = False
 if 'psutil' in modules:
     _PSUTIL_INSTALL = True
-    _NO_PSUTIL_INSTALL_MSG = 'Please install the psutil module to retrieve system memory usage info.'
     from psutil import virtual_memory
 
 
@@ -97,17 +96,13 @@ class Memory(Formatter):
 
     else:
         @staticmethod
-        def info():
-            print(_NO_PSUTIL_INSTALL_MSG)
-            return None
+        def info(): return 'N/A'
 
         @property
-        def installed(self):
-            return self.info()
+        def installed(self): return self.info()
 
         @property
-        def available(self):
-            return self.info()
+        def available(self): return self.info()
 
 
 class Processor:
