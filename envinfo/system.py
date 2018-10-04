@@ -162,7 +162,7 @@ class EnvInfo:
         return iter(self._iter)
 
     def __str__(self):
-        return ''.join([str(i) for i in self.__iter__()])
+        return ''.join([str(i) for i in self.__iter__()]).strip()
 
     def all(self):
         return {n._type.lower(): n.info() for n in self.__iter__()}
