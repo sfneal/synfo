@@ -21,6 +21,7 @@ Hardware
         Installed
         Available
 """
+from argparse import ArgumentParser
 import multiprocess as mp
 from os import getlogin
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
@@ -133,13 +134,32 @@ class Hardware(Formatter):
 
 
 class EnvInfo:
-    def __init__(self):
+    def __init__(self, kwargs=None):
         self.python = Python()
         self.system = System()
         self.hardware = Hardware()
+        self._iter = self._set_iter(kwargs)
+
+    def _set_iter(self, kwargs):
+        """Create list system info to return"""
+        # Confirm kwargs is not None
+        if kwargs:
+            python, system, hardware = kwargs.get('python', True), kwargs.get('system', True), kwargs.get('hardware', True)
+        else:
+            python, system, hardware = True, True, True
+
+        # Create list to return
+        lst = []
+        if python and python is True:
+            lst.append(self.python)
+        if system and system is True:
+            lst.append(self.system)
+        if hardware and hardware is True:
+            lst.append(self.hardware)
+        return lst
 
     def __iter__(self):
-        return iter([self.python, self.system, self.hardware])
+        return iter(self._iter)
 
     def __str__(self):
         return ''.join([str(i) for i in self.__iter__()])
@@ -149,10 +169,33 @@ class EnvInfo:
 
 
 def main():
-    # TODO: Add sys.args handling to make script callable from command line
-    env = EnvInfo()
-    print(env)
-    return env.all()
+    # Declare argparse argument descriptions
+    usage = 'Retrieve system information'
+    description = 'A lightweight utility for retrieving system information and specifications.'
+    helpers = {
+        'a': "Retrieve all available system information",
+        'p': "Retrieve Python interpreter information such as Python version and Python compiler",
+        's': "Retrieve software related information such as operating system, machine type, username, etc.",
+        'hw': "Retrieve Hardware related information such as memory and processor information",
+    }
+
+    # construct the argument parse and parse the arguments
+    ap = ArgumentParser(usage=usage, description=description)
+    ap.add_argument("-a", "--all", help=helpers['a'], action='store_true')
+    ap.add_argument("-p", "--python", help=helpers['p'], action='store_true')
+    ap.add_argument("-s", "--system", help=helpers['s'], action='store_true')
+    ap.add_argument("-hw", "--hardware", help=helpers['hw'], action='store_true')
+    args = vars(ap.parse_args())
+
+    # Set python, system and hardware flags to True if all is set
+    _all = args.pop('all')
+    if _all is True:
+        args = {k: True for k in args.keys()}
+    elif all(v is False for v in args.values()):
+        args = {k: True for k in args.keys()}
+
+    # Run EnvInfo
+    print(EnvInfo(args))
 
 
 if __name__ == '__main__':
