@@ -8,6 +8,7 @@ class Formatter:
         return self._create_string()
 
     def _create_string(self):
+        """Create a multi-line string representation of environment info"""
         lst = [self._type, '------']
         for k, v in self._info().items():
             lst.append(self._format_string(k, v))
