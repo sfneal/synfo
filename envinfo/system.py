@@ -133,7 +133,7 @@ class Hardware(Formatter):
     def processor(self): return Processor()
 
 
-class EnvInfo:
+class Synfo:
     def __init__(self, kwargs=None):
         self.python = Python()
         self.system = System()
@@ -195,7 +195,7 @@ def main():
         args = {k: True for k in args.keys()}
 
     # Run EnvInfo
-    print(EnvInfo(args))
+    print(Synfo(args))
 
 
 if __name__ == '__main__':
