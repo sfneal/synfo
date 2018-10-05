@@ -29,10 +29,11 @@ from synfo.format import Formatter
 
 # Conditional import of psutil
 from sys import modules
-_PSUTIL_INSTALL = False
-if 'psutil' in modules:
+try:
     _PSUTIL_INSTALL = True
+except ImportError:
     from psutil import virtual_memory
+    _PSUTIL_INSTALL = False
 
 
 class Python(Formatter):
