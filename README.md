@@ -37,13 +37,17 @@ from synfo import Synfo
 
 print(Synfo().system)
 # System
-------
+# ------
 # os               : Darwin
 # release          : 18.2.0
 # machine          : x86_64
 # architecture     : 64bit
 # hostname         : Stephens-TouchBar-MacBook.local
 # username         : Stephen
+
+print(Synfo().system.os)
+# Darwin
+
 ```
 ### Command line example
 ```bash
