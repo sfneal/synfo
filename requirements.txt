@@ -1,0 +1,2 @@
+dill==0.2.8.2
+multiprocess==0.70.6.1
