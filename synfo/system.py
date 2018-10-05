@@ -179,10 +179,10 @@ def main():
     usage = 'Retrieve system information'
     description = 'A lightweight utility for retrieving system information and specifications.'
     helpers = {
-        'a': "Retrieve all available system information",
-        'p': "Retrieve Python interpreter information such as Python version and Python compiler",
-        's': "Retrieve software related information such as operating system, machine type, username, etc.",
-        'hw': "Retrieve Hardware related information such as memory and processor information",
+        'a': "All available system information",
+        'p': "Python interpreter information such as Python version and Python compiler",
+        's': "Software related information such as operating system, machine type, username, etc.",
+        'hw': "Hardware related information such as memory and processor information",
     }
 
     # construct the argument parse and parse the arguments
