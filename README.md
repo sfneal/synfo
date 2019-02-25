@@ -108,11 +108,12 @@ synfo
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/mrstephenneal/differentiate/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/mrstephenneal/synfo/CONTRIBUTING.md) for details on our code of 
+conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mrstephenneal/differentiate). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mrstephenneal/synfo). 
 
 ## Authors
 
