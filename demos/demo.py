@@ -1,9 +1,11 @@
 from synfo import Synfo
 
 
-# Retrieve information about Python version and compiler
+# Python version and compiler info
 print(Synfo().python)
 
-
-# Retrieve information about Python version and compiler
+# System info
 print(Synfo().system)
+
+# Hardware info
+print(Synfo().hardware)
