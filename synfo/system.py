@@ -28,11 +28,10 @@ from platform import python_version, python_compiler, system, release, machine, 
 from synfo.format import Formatter
 
 # Conditional import of psutil
-from sys import modules
 try:
+    from psutil import virtual_memory
     _PSUTIL_INSTALL = True
 except ImportError:
-    from psutil import virtual_memory
     _PSUTIL_INSTALL = False
 
 
