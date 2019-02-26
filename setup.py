@@ -19,7 +19,6 @@ setup(
     packages=find_packages(),
     install_requires=[
         'multiprocess==0.70.7',
-        'psutil==5.5.1',
     ],
     entry_points={
         'console_scripts': [
