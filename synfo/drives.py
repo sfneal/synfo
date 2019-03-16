@@ -10,14 +10,26 @@ if System().os == 'Windows':
     # TODO: Make class cross platform compatible
     class Drives:
         def __init__(self):
-            self.drives = self._get_drives()
-            self.drives_local = self._get_drives_local()
+            self._drives = None
+            self._drives_local = None
 
         def __str__(self):
             return str(self.drives)
 
         def __iter__(self):
             return iter(self.drives)
+
+        @property
+        def drives(self):
+            if not self._drives:
+                self._drives = self._get_drives()
+            return self._drives
+
+        @property
+        def drives_local(self):
+            if not self._drives_local:
+                self._drives_local = self._get_drives_local()
+            return self._drives_local
 
         @staticmethod
         def _get_drives():
