@@ -4,4 +4,3 @@ from synfo.drives import Drives
 
 
 __all__ = ['Synfo', 'Packages', 'Drives']
-# TODO: Conisider refactoring synfo ---> synfo?
