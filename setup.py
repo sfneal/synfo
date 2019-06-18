@@ -23,6 +23,9 @@ setup(
             'synfo = synfo.system:main'
         ]
     },
+    extras_require={
+        'memory': 'psutil>=5.5.1'
+    },
     url='https://github.com/mrstephenneal/synfo',
     license='GPL-3.0',
     author='Stephen Neal',
