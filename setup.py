@@ -17,9 +17,7 @@ setup(
     name='synfo',
     version=verstr,
     packages=find_packages(),
-    install_requires=[
-        'multiprocess==0.70.7',
-    ],
+    install_requires=[],
     entry_points={
         'console_scripts': [
             'synfo = synfo.system:main'

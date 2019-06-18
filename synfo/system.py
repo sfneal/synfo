@@ -22,7 +22,7 @@ Hardware
         Available
 """
 from argparse import ArgumentParser
-import multiprocess as mp
+from multiprocessing import cpu_count
 from os import getlogin
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
 from synfo.format import Formatter
@@ -130,7 +130,7 @@ class Processor:
 
     @property
     def cores(self):
-        return mp.cpu_count()
+        return cpu_count()
 
 
 class Hardware(Formatter):
