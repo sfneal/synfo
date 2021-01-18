@@ -1,6 +1,6 @@
 # synfo
 
-[![GuardRails badge](https://badges.production.guardrails.io/mrstephenneal/envinfo.svg)](https://www.guardrails.io)
+[![GuardRails badge](https://badges.production.guardrails.io/sfneal/envinfo.svg)](https://www.guardrails.io)
 
 A lightweight Python utility for retrieving system information and specifications.
 
