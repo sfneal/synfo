@@ -1,2 +1,0 @@
-multiprocess==0.70.7
-psutil==5.5.1
