@@ -18,7 +18,7 @@ Package features:
 synfo was developed to provide an easy way retrieve system information for various uses in any Python script.  
 
 ## Usage
-Retrive information about the current system, Python interpreter or connected hardware.  synfo can be imported as a library or called from the command line.
+Retrieve information about the current system, Python interpreter or connected hardware.  synfo can be imported as a library or called from the command line.
 
 
 ### Import examples
