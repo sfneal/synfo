@@ -1,5 +1,11 @@
 # synfo
 
+[![Build Status](https://travis-ci.com/sfneal/synfo.svg?branch=master)](https://travis-ci.com/sfneal/synfo)
+[![PyPi version](https://img.shields.io/pypi/v/synfo)](https://pypi.org/project/synfo)
+[![PyPi Python support](https://img.shields.io/pypi/pyversions/synfo)](https://pypi.org/project/synfo)
+[![PyPi downloads per month](https://img.shields.io/pypi/dm/synfo)](https://pypi.org/project/synfo)
+[![PyPi license](https://img.shields.io/pypi/l/synfo)](https://pypi.org/project/synfo)
+
 A lightweight Python utility for retrieving system information and specifications.
 
 Package features:
