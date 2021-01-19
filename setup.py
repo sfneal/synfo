@@ -17,14 +17,14 @@ setup(
     name='synfo',
     version=verstr,
     packages=find_packages(),
-    install_requires=[
-        'multiprocess==0.70.7',
-        'psutil==5.5.1',
-    ],
+    install_requires=[],
     entry_points={
         'console_scripts': [
             'synfo = synfo.system:main'
         ]
+    },
+    extras_require={
+        'memory': 'psutil>=5.5.1'
     },
     url='https://github.com/mrstephenneal/synfo',
     license='GPL-3.0',

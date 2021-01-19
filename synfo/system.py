@@ -22,7 +22,7 @@ Hardware
         Available
 """
 from argparse import ArgumentParser
-import multiprocess as mp
+from multiprocessing import cpu_count
 from os import getlogin
 from platform import python_version, python_compiler, system, release, machine, processor, architecture, node
 from synfo.format import Formatter
@@ -60,22 +60,31 @@ class System(Formatter):
                 'hostname': self.hostname, 'username': self.username}
 
     @property
-    def os(self): return system()
+    def os(self):
+        return system()
 
     @property
-    def release(self): return release()
+    def release(self):
+        return release()
 
     @property
-    def machine(self): return machine()
+    def machine(self):
+        return machine()
 
     @property
-    def architecture(self): return architecture()[0]
+    def architecture(self):
+        return architecture()[0]
 
     @property
-    def hostname(self): return node()
+    def hostname(self):
+        return node()
 
     @property
-    def username(self): return getlogin()
+    def username(self):
+        try:
+            return getlogin()
+        except OSError:
+            return 'N/A'
 
 
 class Memory(Formatter):
@@ -90,31 +99,38 @@ class Memory(Formatter):
             return {'installed': self.installed, 'available': self.available}
 
         @property
-        def installed(self): return self._format_size(virtual_memory()[0], binary=True)
+        def installed(self):
+            return self._format_size(virtual_memory()[0], binary=True)
 
         @property
-        def available(self): return self._format_size(virtual_memory()[1], binary=True)
+        def available(self):
+            return self._format_size(virtual_memory()[1], binary=True)
 
     else:
         @staticmethod
         def info(): return 'N/A'
 
         @property
-        def installed(self): return self.info()
+        def installed(self):
+            return self.info()
 
         @property
-        def available(self): return self.info()
+        def available(self):
+            return self.info()
 
 
 class Processor:
     """Processor information class"""
-    def __str__(self): return self.type
+    def __str__(self):
+        return self.type
 
     @property
-    def type(self): return processor()
+    def type(self):
+        return processor()
 
     @property
-    def cores(self): return mp.cpu_count()
+    def cores(self):
+        return cpu_count()
 
 
 class Hardware(Formatter):
