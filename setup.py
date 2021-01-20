@@ -27,7 +27,7 @@ setup(
         'memory': 'psutil>=5.5.1'
     },
     url='https://github.com/sfneal/synfo',
-    license='GPL-3.0',
+    license='MIT',
     author='Stephen Neal',
     author_email='stephen@stephenneal.net',
     description='A lightweight utility for retrieving system information and specifications.'
