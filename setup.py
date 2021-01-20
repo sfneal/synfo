@@ -1,24 +1,32 @@
-import re
+import os
 from setuptools import setup, find_packages
 
-# Retrieve version number
-VERSIONFILE = "synfo/_version.py"
-verstrline = open(VERSIONFILE, "rt").read()
-VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
-mo = re.search(VSRE, verstrline, re.M)
-if mo:
-    verstr = mo.group(1)
-else:
-    raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE))
+NAME = 'synfo'
 
-setup(name='synfo',
-      version=verstr,
+DESCRIPTION = 'A lightweight utility for retrieving system information and specifications.'
+
+
+def get_version(package_name, version_file='_version.py'):
+    """
+    Retrieve the package version from a version file in the package root.
+
+    :param package_name:
+    :param version_file: version file name (inside package root)
+    :return: package version
+    """
+    filename = os.path.join(os.path.dirname(__file__), package_name, version_file)
+    with open(filename, 'rb') as fp:
+        return fp.read().decode('utf8').split('=')[1].strip(" \n'")
+
+
+setup(name=NAME,
+      version=get_version(NAME),
       packages=find_packages(),
       install_requires=[],
       entry_points={'console_scripts': ['synfo = synfo.system:main']},
       extras_require={'memory': 'psutil>=5.5.1'},
       url='https://github.com/sfneal/synfo',
-      license='GPL-3.0',
+      license='MIT',
       author='Stephen Neal',
       author_email='stephen@stephenneal.net',
-      description='A lightweight utility for retrieving system information and specifications.')
+      description=DESCRIPTION)
