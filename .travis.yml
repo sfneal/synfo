@@ -1,24 +1,29 @@
 language: python
 
-os: linux
+cache:
+  pip: true
+  directories:
+    - "$HOME/.cache/pip"
 
-arch: arm64-graviton2
+env:
+  global:
+  - secure: kKVQRkUNyK8ZcjMKE+QJHzomv/HXVmutnbxUAK9xt3Ww0QGl9nFpApoAfv+UHIaQv7RPJV98Kp8nQs05VJwKtQgEx58fPcS6tiQShtzSE0OO43RvVK+BimPGzyXHDlqi9Hva9vPya8tf6pW+Je5x5yAmGSi3DxMi/0GpPWvFUKWea/yNYpXa3aTka0SaqcywvYamRYW6X0K0o/IORVU5GwaXnk7aIR+nJ14zk6840h7MkMY7QjboyDAxLmbgLjfMHDJIv4ObQSzxIQrFTXhW+30UEZrfPmGm54guprHJbiCY+Y/bWm1SEOq/X/6GB/Vk4l7oxR+TiddhKWwJnEGnNOZCIitMJ/nnCk/Tqn5JQihbvCNJC8w0MRHeIIzwW++h7jUiZvUrvG3nLjGsMDZi1GcdBUslEK1dWlbG9RRdTVZr64C10WVu1BrBY8yUw7nDTSwLWfZ195Oq+AS+rVX8tQyKGyqKQcRcg5xe69sIXW9gZO7lpDER77Edg3OwieTclmt4WyR0z61XCD5b8HqKr1y9ia8Hpt1ya6ssM3OeXcaw0p/bKrZEoBaFV81uarwWDJEVmu/0R8dTjafJExAOiYQl0qoaek0vuaIW+sGB6Nb3P7nHo5H91Mcbx91iqVgsCCuUTy8Kk7WWrczSzleyewkCK9yypMeDyifrmwsSjw8=
+  - secure: 3dt6zEjYEBeRmLLr24kZI9j4GWG9RU/ioPzH6mk9GsSC62UOZN0FAnpdM5kRzBuhzppjnCEQJG2t8pya0CRh6pJdiOm+i0eQGbqNniAKVkOITcXTldAmpu0PlUn2cX6ES4dcMkdsnAWwK5zO/TbLCRmRHWVb1GxmUWkb1ZwIrtDrqtL23HG5vt2L2edHaoIE3KqfFbIfnU+PLjGK1vZ/htech5bL9rPO+GBWwQbL8pSclJo5yOv+f4QlEOQ0/uld92cZ8qZJVWLFOyHOMcVk77qsC3myqdYDMXwKpniK6tNMveqZ8xEuLoXhBxCahsFBt5rY0aN3Q478+6zTkuCx+vyXy5AjXdKept9hSNeZmpOiqDJ2DnIz+UWv4rIXd7iF4f3u4XbdKapElANpKPy6iDWGf/dLOOPEy2tXtGv20GBAKwnOHoxOKJPXJCxVWpYwaJqROAO5R6jGNbrFz3GwpQIf57vHlQjIZq3qd55JREdjBzlfisFlUgprYvMC9Lkjb1LVL3iRoT0zGsC9qrNOhXZKQdhnSprVQT7Sm5/tIpt6Ienp1FCYPmqCnDSUN+jNj+YZQ3KOgrCqMJpS/XDWk9jJ/pwp+Td9yezD9sKTpXnQWBAMtA5v3IQgMcRf+U6h1mOqsdlXAH3ZwPvxkXgdIOH1rQuN2PiqgRboITk9ywQ=
 
 python:
   - 3.6
   - 3.7
   - 3.8
   - 3.9
-  - 3.9-dev
+  - 3.10-dev
   - nightly
 
 jobs:
   allow_failures:
-    - python: 3.9-dev
+    - python: 3.10-dev
     - python: nightly
 
 before_install:
-  - python --version
   - pip install -U pip
 
 install:
@@ -26,3 +31,12 @@ install:
 
 script:
   - python3 demos/demo.py
+
+deploy:
+  provider: pypi
+  username: "$PYPI_USERNAME"
+  password: "$PYPI_PASSWORD"
+  skip_existing: true
+  on:
+    tags: true
+    python: 3.9
