@@ -26,7 +26,7 @@ setup(
     extras_require={
         'memory': 'psutil>=5.5.1'
     },
-    url='https://github.com/mrstephenneal/synfo',
+    url='https://github.com/sfneal/synfo',
     license='GPL-3.0',
     author='Stephen Neal',
     author_email='stephen@stephenneal.net',

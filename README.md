@@ -118,16 +118,16 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/mrstephenneal/synfo/CONTRIBUTING.md) for details on our code of 
+Please read [CONTRIBUTING.md](https://github.com/sfneal/synfo/CONTRIBUTING.md) for details on our code of 
 conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mrstephenneal/synfo). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/sfneal/synfo). 
 
 ## Authors
 
-* **Stephen Neal** - *Initial work* - [synfo](https://github.com/mrstephenneal)
+* **Stephen Neal** - *Initial work* - [synfo](https://github.com/sfneal)
 
 ## License
 
