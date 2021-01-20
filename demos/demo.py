@@ -1,6 +1,5 @@
 from synfo import Synfo
 
-
 # Python version and compiler info
 print(Synfo().python)
 
