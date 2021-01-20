@@ -44,10 +44,12 @@ class Python(Formatter):
         return {'version': self.version, 'compiler': self.compiler}
 
     @property
-    def version(self): return python_version()
+    def version(self):
+        return python_version()
 
     @property
-    def compiler(self): return python_compiler()
+    def compiler(self):
+        return python_compiler()
 
 
 class System(Formatter):
@@ -56,8 +58,14 @@ class System(Formatter):
         super(System, self).__init__('System', self.info)
 
     def info(self):
-        return {'os': self.os, 'release': self.release, 'machine': self.machine, 'architecture': self.architecture,
-                'hostname': self.hostname, 'username': self.username}
+        return {
+            'os': self.os,
+            'release': self.release,
+            'machine': self.machine,
+            'architecture': self.architecture,
+            'hostname': self.hostname,
+            'username': self.username
+        }
 
     @property
     def os(self):
@@ -92,9 +100,11 @@ class Memory(Formatter):
     def __init__(self):
         super(Memory, self).__init__('Memory', self.info)
 
-    def __str__(self): return self.installed
+    def __str__(self):
+        return self.installed
 
     if _PSUTIL_INSTALL:
+
         def info(self):
             return {'installed': self.installed, 'available': self.available}
 
@@ -107,8 +117,10 @@ class Memory(Formatter):
             return self._format_size(virtual_memory()[1], binary=True)
 
     else:
+
         @staticmethod
-        def info(): return 'N/A'
+        def info():
+            return 'N/A'
 
         @property
         def installed(self):
@@ -139,14 +151,20 @@ class Hardware(Formatter):
         super(Hardware, self).__init__('Hardware', self.info)
 
     def info(self):
-        return {'memory_installed': self.memory.installed, 'memory_available': self.memory.available,
-                'processor_type': self.processor.type, 'processor_cores': self.processor.cores}
+        return {
+            'memory_installed': self.memory.installed,
+            'memory_available': self.memory.available,
+            'processor_type': self.processor.type,
+            'processor_cores': self.processor.cores
+        }
 
     @property
-    def memory(self): return Memory()
+    def memory(self):
+        return Memory()
 
     @property
-    def processor(self): return Processor()
+    def processor(self):
+        return Processor()
 
 
 class Synfo:
@@ -160,7 +178,8 @@ class Synfo:
         """Create list system info to return"""
         # Confirm kwargs is not None
         if kwargs:
-            python, system, hardware = kwargs.get('python', True), kwargs.get('system', True), kwargs.get('hardware', True)
+            python, system, hardware = kwargs.get('python', True), kwargs.get('system',
+                                                                              True), kwargs.get('hardware', True)
         else:
             python, system, hardware = True, True, True
 

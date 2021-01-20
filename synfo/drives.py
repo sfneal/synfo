@@ -61,16 +61,14 @@ if System().os == 'Windows':
             else:
                 print('Unable to find a valid path')
 
-
     def main():
         print(Drives())
-
 
     if __name__ == '__main__':
         main()
 
-
 else:
+
     class Drives:
         def __init__(self):
             print("synfo.drives module is compatible with Windows platform's only")

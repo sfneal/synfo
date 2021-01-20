@@ -41,12 +41,12 @@ class Formatter:
         size_units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
         if binary:
-            base = 2 ** 10
+            base = 2**10
         else:
-            base = 10 ** 3
+            base = 10**3
 
         for i, unit in reversed(list(enumerate(size_units))):
-            divider = base ** i
+            divider = base**i
             if num_bytes >= divider:
                 formatted = '{:0.2f}'.format(num_bytes / divider, unit)
                 if strip:
