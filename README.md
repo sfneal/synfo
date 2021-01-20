@@ -5,6 +5,8 @@
 [![PyPi Python support](https://img.shields.io/pypi/pyversions/synfo)](https://pypi.org/project/synfo)
 [![PyPi downloads per month](https://img.shields.io/pypi/dm/synfo)](https://pypi.org/project/synfo)
 [![PyPi license](https://img.shields.io/pypi/l/synfo)](https://pypi.org/project/synfo)
+[![StyleCI](https://github.styleci.io/repos/148647095/shield?branch=master)](https://github.styleci.io/repos/148647095?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sfneal/synfo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sfneal/synfo/?branch=master)
 
 A lightweight Python utility for retrieving system information and specifications.
 
