@@ -112,6 +112,10 @@ synfo
 
 ```
 
+### Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/mrstephenneal/synfo/CONTRIBUTING.md) for details on our code of 
