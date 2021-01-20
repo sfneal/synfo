@@ -2,6 +2,7 @@
 
 All notable changes to `PillowImage` will be documented in this file
 
+
 ## 2.0.8 - 2021-01-14
  - add Travis CI config
 
