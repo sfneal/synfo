@@ -15,7 +15,7 @@ class Packages:
 
     @staticmethod
     def _get_packages():
-        """Retrieve a list of installed pacakges"""
+        """Retrieve a list of installed packages"""
         # Run pip freeze command
         pip_freeze = os.popen('pip freeze').read()
 
