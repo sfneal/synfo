@@ -2,6 +2,7 @@ import os
 
 
 class Packages:
+
     def __init__(self):
         self.packages = self._get_packages()
 
